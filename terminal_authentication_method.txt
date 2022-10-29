@@ -1,0 +1,7 @@
+
+
+export SPOTIPY_CLIENT_ID= // ID is shown inside your app on spotify dashboard
+
+export SPOTIPY_CLIENT_SECRET= // shown inside your app on spotify dashboard
+
+export SPOTIPY_REDIRECT_URI=https://localhost:8888/callback
