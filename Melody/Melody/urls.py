@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+##Function Written by Jason Eissayou
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('dashboard/', include('dash_app.urls')),
