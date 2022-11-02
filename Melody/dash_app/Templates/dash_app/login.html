@@ -1,20 +1,25 @@
+<!--Created by Kuldeep-->
+<!--Loaded the staitic files-->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Melody :)</title>
-    <!-- icon Path -->
+    <!--Title of the page-->
+    <title>Melody</title>
+    <!-- logo/icon Path -->
     <link rel = "icon" href = "{% static 'media/Melody_Icon.png' %}" 
             type = "image/x-icon">
     <!-- CSS Style Sheet Path -->
     <link rel="stylesheet" href="{% static 'media/loginStyle.css'%}" />
   </head>
   <body>
+    <!--main container to store everthing-->
     <div class="main_container">
       <div class="login">
         <img src="{% static 'media/Melody_Icon.png' %}" />
+        <!--login form with post method-->
         <form method="POST">
           {% csrf_token %}
           <h1>Login To Melody</h1>
@@ -30,6 +35,7 @@
         </form>
       </div>
       <div class="pic">
+        <!-- login page big image -->
         <img id src="{% static 'media/1stPage.jpg' %}" />
       </div>
     </div>
