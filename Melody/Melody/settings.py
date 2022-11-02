@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+##Dash App installed by Jason Eissayou
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
