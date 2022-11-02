@@ -11,7 +11,6 @@ urlpatterns = [
     path("login", views.login_request, name="login"),
     path("logout", views.logout_request, name= "logout"),
     path('dashboard', views.dashboard, name="dashboard"),
-    path('homepage', views.homepage, name="homepage")
 ]
 
 urlpatterns += staticfiles_urlpatterns()
