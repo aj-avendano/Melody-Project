@@ -19,5 +19,6 @@ from django.urls import path, include
 ##Function Written by Jason Eissayou
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('dashboard/', include('dash_app.urls')),
+    path('', include ('dash_app.urls')),
+    #path('dashboard/', include('dash_app.urls')),
 ]

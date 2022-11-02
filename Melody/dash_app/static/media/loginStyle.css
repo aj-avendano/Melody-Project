@@ -1,0 +1,102 @@
+body {
+  background: rgb(214, 214, 214);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.main_container {
+  width: 1000px;
+  height: 550px;
+  margin: 25px auto;
+  display: flex;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 5px 5px 7px gray, -5px -5px 7px gray;
+}
+.login {
+  width: 505px;
+  margin: 0px 85px 0 0px;
+}
+
+.login img {
+  width: 25px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+#signup {
+  background-color: blue;
+  margin-top: 4080px;
+  margin-left: px;
+}
+form {
+  width: 280px;
+  margin: 50px auto;
+}
+form h1 {
+  text-align: center;
+  font-weight: bolder;
+}
+p {
+  text-align: center;
+}
+form label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px;
+}
+input {
+  width: 90%;
+  padding: 8px;
+  margin: 8px;
+  outline: none;
+  border: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+button {
+  width: 235px;
+  margin: 10px 0px 5px 25px;
+  padding: 8px;
+  background: rgb(13, 139, 219);
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+button span {
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+button:hover span {
+  padding-right: 30px;
+}
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+p a {
+  text-decoration: none;
+  color: rgb(13, 139, 219);
+}
+hr {
+  border-top: 2px solid rgb(13, 139, 219);
+}
+
+.pic img {
+  width: 415px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
