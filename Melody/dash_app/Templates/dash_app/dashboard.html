@@ -1,15 +1,18 @@
 <!-- HTML created by Jason Eissayou, Updated by Joaquin Johnson -->
 <!--Kuldeep updated the href links for css and images -->
+
+<!-- Loading static files -->
 {% load static %}
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="{% static 'media/dashboard.css' %}">
 <head>
     <title>Dashboard</title>
-</head>
+</head> 
 <body>
 
 <div class="DashboardTitle">
+  <!--Blue Heading label Dashboard-->
     <H1>Dashboard</H1>
 </div>
   <div id = Side >
@@ -25,16 +28,21 @@
 
     <div class="playlist">
     </div>
-
+    <!--Preferences button class -->
     <div class = "ButtonPhotos">
       <img src="{% static 'media/HeartPhoto.png' %}" alt="HeartPhoto" width="20" height="20" id = HeartPhoto>
       <button type="button" id=preferences>Preferences</button>
       <br></br>
     </div>
-
+    <!--MusicNote button class -->
     <div class="Buttons">
       <img src="{% static 'media/MusicNote.png' %}" alt="MusicNote" width="20" height="20" id = MusicNote>
       <button type="button" id=generator>Generate Playlist</button>
+    </div>
+    <!--Logout button class -->
+    <div class="Buttons">
+      <img   width="20" height="20" id = MusicNote>
+      <button type="button" id=generator onclick="location.href = '/logout'">Logout</button>
     </div>
 </div>
 </body>
