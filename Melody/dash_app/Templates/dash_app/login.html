@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Melody :)</title>
+    <!-- icon Path -->
+    <link rel = "icon" href = "{% static 'media/Melody_Icon.png' %}" 
+            type = "image/x-icon">
+    <!-- CSS Style Sheet Path -->
+    <link rel="stylesheet" href="{% static 'media/loginStyle.css'%}" />
+  </head>
+  <body>
+    <div class="main_container">
+      <div class="login">
+        <img src="{% static 'media/Melody_Icon.png' %}" />
+        <form method="POST">
+          {% csrf_token %}
+          <h1>Login To Melody</h1>
+          <hr />
+          <hr />
+          <p>Or Sign up!</p>
+          <label>Username</label>
+          <input type="text" name="username" placeholder="username" />
+          <label>Password</label>
+          <input type="password" name="password" placeholder="Password" />
+          <button type="submit"><span>Login</span></button>
+          <p><a href="/register">Sign up!</a></p>
+        </form>
+      </div>
+      <div class="pic">
+        <img id src="{% static 'media/1stPage.jpg' %}" />
+      </div>
+    </div>
+  </body>
+</html>
