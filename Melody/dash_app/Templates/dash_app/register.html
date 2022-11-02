@@ -1,14 +1,21 @@
-{% extends "dash_app/header.html" %} 
+
+<!--Created by Kuldeep-->
+<!--Extented the register header-->
+{% extends "dash_app/registerHeader.html" %} 
 {% block content %} 
+<!--Used the crispy forms from Bootstrap-->
 {% load crispy_forms_tags %}
 
-<!--Register-->
+<!--Register class-->
 <div class="container py-5">
+  <!--register title-->
   <h1>Register</h1>
+  <!--register form with post method-->
   <form method="POST">
     {% csrf_token %} {{ register_form|crispy }}
     <button class="btn btn-primary" type="submit">Register</button>
   </form>
+  <!--Link to the login page-->
   <p class="text-center">
     If you already have an account, <a href="/login">login</a> instead.
   </p>
