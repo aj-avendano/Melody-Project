@@ -1,6 +1,6 @@
 <!-- HTML created by Jason Eissayou, Updated by Joaquin Johnson -->
 <!--Kuldeep updated the href links for css and images -->
-
+<!--Jason updated to make the forms pop up for the Preferences and Generate Playlist Buttons 11/9/22 -->
 <!-- Loading static files -->
 {% load static %}
 <!DOCTYPE html>
@@ -12,7 +12,6 @@
 <body>
 
 <div class="DashboardTitle">
-  <!--Blue Heading label Dashboard-->
     <H1>Dashboard</H1>
 </div>
   <div id = Side >
@@ -28,22 +27,66 @@
 
     <div class="playlist">
     </div>
-    <!--Preferences button class -->
+<!--Preferences button class -->
     <div class = "ButtonPhotos">
       <img src="{% static 'media/HeartPhoto.png' %}" alt="HeartPhoto" width="20" height="20" id = HeartPhoto>
-      <button type="button" id=preferences>Preferences</button>
+      <button type="button" onclick="openPreferencesForm()" id=generator>Preferences</button>
       <br></br>
     </div>
-    <!--MusicNote button class -->
+<!--MusicNote button class -->
     <div class="Buttons">
       <img src="{% static 'media/MusicNote.png' %}" alt="MusicNote" width="20" height="20" id = MusicNote>
-      <button type="button" id=generator>Generate Playlist</button>
+      <button type="button" onclick="openGenerateForm()" id=generator>Generate Playlist</button>
     </div>
-    <!--Logout button class -->
+        <!--Logout button class -->
     <div class="Buttons">
       <img   width="20" height="20" id = MusicNote>
       <button type="button" id=generator onclick="location.href = '/logout'">Logout</button>
     </div>
+    </div>
+
+
 </div>
+<!--Form popup for preferences -->
+  <div class="form-popup" id="myPreferencesForm">
+  <script src="{% static 'media/FormPopups.js' %}"></script>
+  
+    <form action="/action_page.php" class="form-container">
+      <h1>Generator</h1>
+
+      <label for="psw"><b>Genre Preferences</b></label>
+      <input type="text" placeholder="Enter Genre" name="Genre" required>
+
+      <label for="psw"><b>Artist Preferences</b></label>
+      <input type="password" placeholder="Enter Artist" name="Artist" required>
+
+      <label for="psw"><b>Song Preferences</b></label>
+      <input type="password" placeholder="Enter Song" name="Song" required>
+
+      <button type="submit" class="btn">Search</button>
+      <button type="button" class="btn cancel" onclick="closePreferencesForm()">Close</button>
+    </form>
+  </div>
+
+<!--Form popup for Generator -->
+    <div class="form-popup" id="myGenerateForm">
+  <script src="{% static 'media/FormPopups.js' %}"></script>
+  
+    <form action="/action_page.php" class="form-container">
+      <h1>Generator</h1>
+
+      <label for="psw"><b>Generate Test</b></label>
+      <input type="text" placeholder="Enter Genre" name="Genre" required>
+
+      <label for="psw"><b>Generate Test</b></label>
+      <input type="password" placeholder="Enter Artist" name="Artist" required>
+
+      <label for="psw"><b>Generate Test</b></label>
+      <input type="password" placeholder="Enter Song" name="Song" required>
+
+      <button type="submit" class="btn">Search</button>
+      <button type="button" class="btn cancel" onclick="closeGenerateForm()">Close</button>
+    </form>
+  </div>
 </body>
 </html>
