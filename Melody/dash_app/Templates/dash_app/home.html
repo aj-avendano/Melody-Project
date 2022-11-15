@@ -1,40 +1,60 @@
-<!-- Created by Kuldeep -->
-<!-- Extented the header to home page -->
-{% extends 'dash_app/header.html' %} 
+{% load static %}
+<!DOCTYPE html>
+<html class="h-100" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- logo/icon Path -->
+    <link
+      rel="icon"
+      href="{% static 'media/Melody_Icon.png' %}"
+      type="image/x-icon"
+    />
+    <title justify-content-center>&nbsp;&nbsp;&nbsp;&nbsp;Melody Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- CSS Style Sheet Path -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'media/cover.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'media/header.css' %}"
+    />
+  </head>
 
-
-
-
-<!-- Might use this code later for Navbar
-{% block content %}
-
-
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="False" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        {% if user.is_authenticated %}
-        
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">Logout</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Welcome, {{user.username}}</a>
-        </li>
-  
-        {% else %}
-  
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-  
-        {% endif %}
-      </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">{% include "dash_app/header.html" %}</div>
     </div>
-  </nav>
-  {% endblock %} -->
+    <body>
+      <div class="row align-items-end">
+        <div class="col align-self-center">
+          <section class="coverBody">
+            <body class="h-100 text-center text-bg-dark">
+              <div
+                class="cover-container d-flex w-100 h-100 p-5 mx-auto flex-column"
+              >
+                <main class="px-3">
+                  <h1>Welcome to Melody!</h1>
+                  <p class="lead">Ready to create your favorite playlist?</p>
+                  <p class="lead">
+                    Login to your acccount or sign up if you don't have one!
+                  </p>
+                </main>
+              </div>
+            </body>
+          </section>
+        </div>
+      </div>
+    </body>
+  </div>
+</html>

@@ -1,17 +1,26 @@
-H1 {
-  color:blue;
-  text-align: center;
-  background-color:;
+.container-fluid {
+  padding: 0px;
 }
 H1 {
+  color: blueviolet;
+  text-align: center;
+  background-color: white;
   border-style: solid;
-  border-color: black;
+  border-color: Green;
 }
 
 #Side {
-   width: 200px;
-   height: 800px;
-   padding: 10px;
-   border: 5px solid black;
-   margin: 0;
+  width: 200px;
+  height: 800px;
+  padding: 10px;
+  border: 5px solid red;
+  margin: 0;
+}
+
+#mainRow {
+  height: 100vh;
+}
+
+#col1 {
+  padding: 0px;
 }
