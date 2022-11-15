@@ -1,0 +1,27 @@
+{% extends "dash_app/dashboard.html" %} {% load static %}{% block title%}
+Prefences{% endblock%} {% block content %}
+<!--Form popup for Generator -->
+<div class="form-popup" id="myGenerateForm">
+  {% comment %}
+  <script src="{% static 'media/FormPopups.js' %}"></script>
+  {% endcomment %}
+
+  <form action="/action_page.php" class="form-container">
+    <h1>Generator</h1>
+
+    <label for="psw"><b>Generate Test</b></label>
+    <input type="text" placeholder="Enter Genre" name="Genre" required />
+
+    <label for="psw"><b>Generate Test</b></label>
+    <input type="password" placeholder="Enter Artist" name="Artist" required />
+
+    <label for="psw"><b>Generate Test</b></label>
+    <input type="password" placeholder="Enter Song" name="Song" required />
+
+    <button type="submit" class="btn">Search</button>
+    <button type="button" class="btn cancel" onclick="closeGenerateForm()">
+      Close
+    </button>
+  </form>
+</div>
+{% endblock %}
