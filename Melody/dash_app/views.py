@@ -61,3 +61,16 @@ def logout_request(request):
 	messages.info(request, "You have successfully logged out.") 
 	#redirected to login page. 
 	return redirect("dash_app:login")
+
+def dashboardHome(request):
+
+	return render(request=request, template_name='dash_app/dashboardHome.html')
+
+
+def preferences(request):
+
+	return render(request=request, template_name='dash_app/preferences.html')
+	
+def generator(request):
+
+	return render(request=request, template_name='dash_app/generator.html')
