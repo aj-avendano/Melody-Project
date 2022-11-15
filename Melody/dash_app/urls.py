@@ -11,6 +11,9 @@ urlpatterns = [
     path("login", views.login_request, name="login"),
     path("logout", views.logout_request, name= "logout"),
     path('dashboard', views.dashboard, name="dashboard"),
+    path('dashboardHome', views.dashboardHome, name="dashboardHome"),
+    path('preferences', views.preferences, name="preferences"),
+    path('generator', views.generator, name="generator")
 ]
 
 urlpatterns += staticfiles_urlpatterns()
