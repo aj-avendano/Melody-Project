@@ -122,13 +122,43 @@
                       Generate Playlist
                     </a>
                   </li>
-                  <li>
-                    <a href="/preferences" class="nav-link link-dark">
+                  <li> <!-- Authorship of Preferences: Joaquin Johnson -->
+                    <a href="/preferences" class="nav-link link-dark"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false">
                       <svg class="bi pe-none me-2" width="16" height="16">
                         <use xlink:href="#heart" />
                       </svg>
                       Preferences
                     </a>
+                    <ul class="dropdown-menu text-small shadow">
+                      <p><b>Please select your preferred genre(s):</b></p>
+                      <li><a class="dropdown-item"</a>
+                        <input type="checkbox" id = genre1 name="genre1" value="country"/>
+                        <label for="genre1" style= "margin-right: 30px"><b>Country</b></label>
+
+                        <input type="checkbox" id = genre2 name="genre2" value="rap" />
+                        <label for="genre2"><b>Rap</b></label><br>
+
+                        <input type="checkbox" id = genre3 name="genre3" value="rock"/>
+                        <label for="genre3" style= "margin-right: 55px"><b>Rock</b></label>
+
+                        <input type="checkbox" id = genre4 name="genre4" value="hiphop"/>
+                        <label for="genre4"><b>Hip Hop</b></label><br>
+
+                        <input type="checkbox" id = genre5 name="genre5" value="classical"/>
+                        <label for="genre5" style= "margin-right: 29px"><b>Classical</b></label>
+
+                        <input type="checkbox" id = genre6 name="genre6" value="dance"/>
+                        <label for="genre6"><b>Dance</b></label><br>
+
+                        <input type="checkbox" id = genre7 name="genre7" value="holiday"/>
+                        <label for="genre7" style= "margin-right: 33px"><b>Holiday</b></label>
+
+                        <input type="checkbox" id = genre8 name="genre8" value="jazz"/>
+                        <label for="genre8"><b>Jazz</b></label><br>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
                 <hr />
