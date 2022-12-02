@@ -1,15 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
-class Profile(models.Model):#class by Anthony
-    name = models.CharField(max_length=30)
-    user=models.OneToOneField(User,on_delete=models.CASCADE)
 class Playlist(models.Model):#class by Anthony
-    user = models.ForeignKey(Profile,on_delete=models.CASCADE)#One(profile)To Many Playlist relationship
+    user = models.ForeignKey(User,on_delete=models.CASCADE)#One(profile)To Many Playlist relationship
     playlist_title = models.CharField(max_length=25)
+
 class PlaylistItems(models.Model):#class by Anthony
-    playlist = models.ForeignKey(Playlist,on_delete=models.CASCADE)#One(Playlist)To Many PlaylistItems relationship
-    song = models.CharField(max_length=25)
+    playlist=models.ForeignKey(Playlist,on_delete=models.CASCADE)#One(Playlist)To Many PlaylistItems relationship
+    song=models.CharField(max_length=25)
     artist =models.CharField(max_length=25)
     album=models.CharField(max_length=25)
 #Test script
@@ -18,15 +16,11 @@ class PlaylistItems(models.Model):#class by Anthony
 #/Melody>python manage.py sqlmigrate dash_app 000i
 #>>>from django.contrib.auth.models import User
 #>>>from dash_app.models import Profile, Playlist, PlaylistItems
-class FavoriteGenres(models.Model):#class by Anthony
-    user = models.ForeignKey(Profile,on_delete=models.CASCADE)#One(profile)To Many FavoriteGenres relationship
-    genre = models.CharField(max_length=30)
-class FavoriteArtist(models.Model):#class by Anthony
-    user = models.ForeignKey(Profile,on_delete=models.CASCADE)#One(profile)To Many FavoriteArtist  relationship
-    artist = models.CharField(max_length=30)
-class FavoriteSong(models.Model):#class by Anthony
-    user = models.ForeignKey(Profile,on_delete=models.CASCADE)#One(profile)To Many FavoriteSong relationship
-    song = models.CharField(max_length=30)
+class UserPreferenceRecord(models.Model):#class by Anthony
+    user=models.ForeignKey(User,on_delete=models.CASCADE)#One(profile)To Many FavoriteGenres relationship
+    genre=models.CharField(max_length=30)
+    artist=models.CharField(max_length=30)
+    song=models.CharField(max_length=30)
 #Test script
 #/Melody>python manage.py migrate
 #/Melody>>python manage.py makemigrations dash_app

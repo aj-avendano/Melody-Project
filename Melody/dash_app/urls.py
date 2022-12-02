@@ -13,7 +13,10 @@ urlpatterns = [
     path('dashboard', views.dashboard, name="dashboard"),
     path('dashboardHome', views.dashboardHome, name="dashboardHome"),
     path('preferences', views.preferences, name="preferences"),
-    path('generator', views.generator, name="generator")
+    path('generator', views.generator, name="generator"),
+    path('create_book', views.PlayListCreateView.as_view(), name='create_book'),
+    path('add', views.playlist, name='add'),
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()

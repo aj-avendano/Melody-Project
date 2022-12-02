@@ -6,6 +6,19 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.exceptions import PermissionDenied
 from django.views import View
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from dash_app.models import Playlist,PlaylistItems,UserPreferenceRecord,Genre,Artist,Album,Song
+from bootstrap_modal_forms.generic import BSModalCreateView
+from dash_app.forms import PlaylistForm
+from django.urls import reverse_lazy
+
+
+
+class PlayListCreateView(BSModalCreateView):
+    template_name = 'dash_app/playlistform.html'
+    form_class = PlaylistForm
+    success_message = 'Success: Book was created.'
+    success_url = reverse_lazy('test')
 
 
 ##Function Written by Jason Eissayou
@@ -74,3 +87,5 @@ def preferences(request):
 def generator(request):
 
 	return render(request=request, template_name='dash_app/generator.html')
+def playlist(request):
+	return render(request=request, template_name='dash_app/test.html')
