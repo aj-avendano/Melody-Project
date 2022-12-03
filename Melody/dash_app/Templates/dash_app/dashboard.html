@@ -18,6 +18,12 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"
       ></script>
+
+
+      <!--Search bar JS that JASON added -->
+      <!-- script src="{% static 'media/SearchBarJS.js' %}"></script> -->
+
+
       <!-- CSS Style Sheet Path -->
       <link rel="stylesheet" href="{% static 'media/sidebars.css'%}" />
       <link rel="stylesheet" href="{% static 'media/dashboard.css' %}" />
@@ -85,13 +91,20 @@
 
                 <ul class="nav nav-pills flex-column mb-auto">
                   <li>
-                    <div class="input-group">
+                    <div class="search-bar">
+                      <div id="select">
+                        <p id = "selectText">All Categories</p>
+                        <img src="{% static 'media/SearchBarArrow.png' %}">
+                        <ul id="list">
+                          <li class="options">Album</li>
+                          <li class="options">Artist</li>
+                          <li class="options">Genre</li>
+                          <li class="options">Song</li>
+                        </ul>
+                      </div>
                       <input
-                        type="search"
-                        class="form-control rounded"
-                        placeholder="Search"
-                        aria-label="Search"
-                        aria-describedby="search-addon"
+                        type="text" id = "inputField"
+                        
                       />
                       <button type="button" class="btn btn-outline-primary">
                         search
@@ -190,6 +203,28 @@
           </div>
         </div>
       </div>
+
+
+      <script>
+              let select = document.getElementById("select")
+      let list = document.getElementById("list")
+      let selectText = document.getElementById("selectText")
+      let inputField = document.getElementById("inputField")
+
+      let options = document.getElementsByClassName("options")
+      window.onload = function(){ 
+      select.onclick = function(){
+        list.classList.toggle("open");
+      }
+    for (option of options){
+      option.onclick = function(){
+        selectText.innerHTML = this.innerHTML;
+        inputField.placeholder = "Search In " + selectText.innerHTML;
+      }
+    }
+}; 
+</script>
+
     </body>
   </html>
 </html>

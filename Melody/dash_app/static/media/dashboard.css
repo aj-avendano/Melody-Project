@@ -24,3 +24,55 @@ H1 {
 #col1 {
   padding: 0px;
 }
+
+
+
+/*JASON SEARCHBAR CHANGES */
+
+#select{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  color:#555;
+  width:300px;
+  padding:25px 20px;
+  cursor: pointer;
+  position: relative;
+  border-radius:4px;
+}
+
+#select img{
+  width:15px;
+}
+
+#select ul{
+  position:absolute;
+  top:60%;
+  left:0;
+  list-style: none;
+  background:#555;
+  color:#999;
+  width:100%;
+  border-radius:4px;
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.5s;
+
+}
+#select ul li{
+  padding 10px 20px;
+  cursor: pointer;
+}
+
+.search-bar input{
+  padding 10px 25px;
+  width:50%;
+  border = none;
+  outline = none;
+  font-size 18;
+}
+#select ul.open{
+  max-height:300px;
+}
+
+/*JASON SEARCHBAR CHANGES */
