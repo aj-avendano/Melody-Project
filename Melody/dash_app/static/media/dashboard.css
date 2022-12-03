@@ -1,88 +1,78 @@
-/*Joaquin made initial 2-18 lines */
-/*Jason added the rest to make button pop up with the help of Jaimit finding the code 11/9/22 */
-H1 {
-  color:blue;
-  text-align: center;
-  background-color:;
+.container-fluid {
+  padding: 0px;
 }
 H1 {
+  color: blueviolet;
+  text-align: center;
+  background-color: white;
   border-style: solid;
-  border-color: black;
+  border-color: Green;
 }
 
 #Side {
-   width: 200px;
-   height: 800px;
-   padding: 10px;
-   border: 5px solid black;
-   margin: 0;
+  width: 200px;
+  height: 800px;
+  padding: 10px;
+  border: 5px solid red;
+  margin: 0;
 }
 
-.open-button {
-  background-color: #555;
-  color: white;
-  /* padding: 16px 20px; */
-  border: none;
+#mainRow {
+  height: 100vh;
+}
+
+#col1 {
+  padding: 0px;
+}
+
+
+
+/*JASON SEARCHBAR CHANGES */
+
+#select{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  color:#555;
+  width:300px;
+  padding:25px 20px;
   cursor: pointer;
-  opacity: 0.8;
-  /* position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px; */
+  position: relative;
+  border-radius:4px;
 }
 
-/* The popup form - hidden by default */
-.form-popup {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 100px;
-  border: 5px solid #000000;
-  z-index: 9;
-
-
+#select img{
+  width:15px;
 }
 
-/* Add styles to the form container */
-.form-container {
-  max-width: 6000px;
-  padding: 200px;
-  background-color: white;
-}
+#select ul{
+  position:absolute;
+  top:60%;
+  left:0;
+  list-style: none;
+  background:#555;
+  color:#999;
+  width:100%;
+  border-radius:4px;
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.5s;
 
-/* Full-width input fields */
-.form-container input[type=text], .form-container input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
 }
-
-/* When the inputs get focus, do something */
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Submit button */
-.form-container .btn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px 20px;
-  border: none;
+#select ul li{
+  padding 10px 20px;
   cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
 }
 
-/* Cancel button color */
-.form-container .cancel {
-  background-color: red;
+.search-bar input{
+  padding 10px 25px;
+  width:50%;
+  border = none;
+  outline = none;
+  font-size 18;
+}
+#select ul.open{
+  max-height:300px;
 }
 
-/* Adding Hover effect */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
-}
+/*JASON SEARCHBAR CHANGES */
