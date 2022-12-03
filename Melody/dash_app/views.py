@@ -20,6 +20,11 @@ class PlayListCreateView(BSModalCreateView):
     success_message = 'Success: Book was created.'
     success_url = reverse_lazy('test')
 
+class UserPreferenceView(BSModalCreateView): # class by Joaquin Johnson
+    template_name = 'dash_app/preferences.html'
+    form_class = UserPreferenceForm
+    success_message = 'Success: Book was created.'
+    success_url = reverse_lazy('test')
 
 ##Function Written by Jason Eissayou
 def dashboard(request):

@@ -4,7 +4,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 app_name = "dash_app"
 
-##Function Written by Jason Eissayou and Kuldeep
+##Function Written by Jason Eissayou and Kuldeep and Joaquin
 urlpatterns = [
     path("", views.homepage, name="homepage"),
     path("register", views.register_request, name="register"),
@@ -15,6 +15,7 @@ urlpatterns = [
     path('preferences', views.preferences, name="preferences"),
     path('generator', views.generator, name="generator"),
     path('create_book', views.PlayListCreateView.as_view(), name='create_book'),
+    path('up', views.UserPreferenceView.as_view(), name='up'),
     path('add', views.playlist, name='add'),
 
 ]

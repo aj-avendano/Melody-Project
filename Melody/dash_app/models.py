@@ -16,7 +16,7 @@ class PlaylistItems(models.Model):#class by Anthony
 #/Melody>python manage.py sqlmigrate dash_app 000i
 #>>>from django.contrib.auth.models import User
 #>>>from dash_app.models import Profile, Playlist, PlaylistItems
-class UserPreferenceRecord(models.Model):#class by Anthony
+class UserPreferenceRecord(models.Model): #class by Joaquin Johnson
     user=models.ForeignKey(User,on_delete=models.CASCADE)#One(profile)To Many FavoriteGenres relationship
     genre=models.CharField(max_length=30)
     artist=models.CharField(max_length=30)
