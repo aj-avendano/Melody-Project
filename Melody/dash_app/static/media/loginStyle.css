@@ -55,7 +55,7 @@ input {
   border-radius: 5px;
 }
 
-button {
+.main_container button {
   width: 235px;
   margin: 10px 0px 5px 25px;
   padding: 8px;
