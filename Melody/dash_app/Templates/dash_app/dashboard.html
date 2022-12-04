@@ -91,9 +91,11 @@
 
                 <ul class="nav nav-pills flex-column mb-auto">
                   <li>
+
+                    <!-- JASON SEARCHBAR CHANGES -->
                     <div class="search-bar">
                       <div id="select">
-                        <p id = "selectText">Please Select Category</p>
+                        <p id = "selectText">Please Select Search Category</p>
                         <img src="{% static 'media/SearchBarArrow.png' %}">
                         <ul id="list">
                           <li class="options">Album</li>
@@ -103,14 +105,17 @@
                         </ul>
                       </div>
                       <input
-                        type="text" id = "inputField"
-                        
+                        type="text" placeholder = "Select Category"
+                        id = "inputField" disabled
                       />
                       <button type="button" class="btn btn-outline-primary">
                         search
                       </button>
                     </div>
                   </li>
+
+                  <!-- JASON SEARCHBAR CHANGES -->
+
                   <li>
                     <hr class="border border-primary border-4 opacity-75" />
                   </li>
@@ -218,6 +223,7 @@
       }
     for (option of options){
       option.onclick = function(){
+        inputField.disabled = false;
         selectText.innerHTML = this.innerHTML;
         inputField.placeholder = "Search In " + selectText.innerHTML;
       }
