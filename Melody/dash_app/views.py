@@ -8,10 +8,10 @@ from django.core.exceptions import PermissionDenied
 from django.views import View
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from dash_app.models import Playlist,PlaylistItems,UserPreferenceRecord,Genre,Artist,Album,Song
-from bootstrap_modal_forms.generic import BSModalCreateView
-from dash_app.forms import PlaylistForm
+from bootstrap_modal_forms.generic import BSModalCreateView,BSModalFormView
+from dash_app.forms import PlaylistForm, UserPreferenceForm,CreateNewList
 from django.urls import reverse_lazy
-
+from .forms import CreateNewList
 
 
 class PlayListCreateView(BSModalCreateView):
@@ -20,11 +20,17 @@ class PlayListCreateView(BSModalCreateView):
     success_message = 'Success: Book was created.'
     success_url = reverse_lazy('test')
 
-class UserPreferenceView(BSModalCreateView): # class by Joaquin Johnson
+##class UserPreferenceView(BSModalCreateView): # class by Joaquin Johnson
+##    template_name = 'dash_app/preferences.html'
+##    form_class = UserPreferenceForm
+##    success_message = 'Success: Book was created.'
+##    success_url = reverse_lazy('test')
+class UserPreferenceView(BSModalFormView):
     template_name = 'dash_app/preferences.html'
     form_class = UserPreferenceForm
-    success_message = 'Success: Book was created.'
-    success_url = reverse_lazy('test')
+    success_url = 'dash_app/dashboard.html'
+    def form_valid(self, form):
+        return super(UserPreferenceForm, self).form_valid(form)
 
 ##Function Written by Jason Eissayou
 def dashboard(request):
@@ -94,3 +100,24 @@ def generator(request):
 	return render(request=request, template_name='dash_app/generator.html')
 def playlist(request):
 	return render(request=request, template_name='dash_app/test.html')
+
+def generator(request): #Jaimit
+	if request.method == "POST":
+
+		form = CreateNewList(request.POST) #gets the entries like name..., genre etc.
+
+		if form.is_valid():
+			Genre = form.cleaned_data["Genre"]
+			Artist = form.cleaned_data["Artist"]
+			Song = form.cleaned_data["Song"]
+
+			list1 = []
+			list1.append(Genre) ##adds the name to the list but can't print it out from page
+			list1.append(Artist)
+			list1.append(Song)
+		return HttpResponseRedirect("dashboardHome") #if entries valid returns to this page
+
+	else:
+		form = CreateNewList()
+
+	return render(request, template_name='dash_app/generator.html', context={"form":form})
