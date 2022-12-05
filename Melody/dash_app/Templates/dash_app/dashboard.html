@@ -108,8 +108,8 @@
                         type="text" placeholder = "Select Category"
                         id = "inputField" disabled
                       />
-                      <button type="button" class="btn btn-outline-primary">
-                        search
+                      <button type="button" class="btn btn-outline-primary" id="SearchButton" disabled>
+                        Search
                       </button>
                     </div>
                   </li>
@@ -224,6 +224,7 @@
     for (option of options){
       option.onclick = function(){
         inputField.disabled = false;
+        SearchButton.disabled = false;
         selectText.innerHTML = this.innerHTML;
         inputField.placeholder = "Search In " + selectText.innerHTML;
       }
