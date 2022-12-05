@@ -1,27 +1,15 @@
-{% extends "dash_app/dashboard.html" %} {% load static %}{% block title%}
+
+{% extends "dash_app/dashboard.html" %}
+{% load static %}
+{% block title%}
 Prefences{% endblock%} {% block content %}
-<!--Form popup for Generator -->
-<div class="form-popup" id="myGenerateForm">
-  {% comment %}
-  <script src="{% static 'media/FormPopups.js' %}"></script>
-  {% endcomment %}
-
-  <form action="/action_page.php" class="form-container">
-    <h1>Generator</h1>
-
-    <label for="psw"><b>Generate Test</b></label>
-    <input type="text" placeholder="Enter Genre" name="Genre" required />
-
-    <label for="psw"><b>Generate Test</b></label>
-    <input type="password" placeholder="Enter Artist" name="Artist" required />
-
-    <label for="psw"><b>Generate Test</b></label>
-    <input type="password" placeholder="Enter Song" name="Song" required />
-
-    <button type="submit" class="btn">Search</button>
-    <button type="button" class="btn cancel" onclick="closeGenerateForm()">
-      Close
-    </button>
-  </form>
-</div>
+<h1 style="color: #165483; font-size: 60px;">Welcome to the Playlist Generator<h1>
+<!-- Do not do that extends stuff cause then you'll need to create new file again -->
+Generator
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit", name="save"> Create </button>
+  <p></p>
+</form>
 {% endblock %}
