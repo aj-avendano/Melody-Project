@@ -24,3 +24,9 @@ class PlaylistForm(BSModalModelForm):
 	class Meta:
 		model = Playlist
 		fields = ['playlist_title']
+
+class UserPreferenceForm(BSModalModelForm): # class by Joaquin Johnson
+	class Meta:
+		model = UserPreferenceRecord
+		fields = ['genre1', 'genre2','genre3','genre4','genre5','genre6','genre7','genre8']
+		labels = {'genre1': 'rap', 'genre2': 'country', 'genre3': 'hiphop','genre4': 'dance', 'genre5': 'holiday', 'genre6': 'rock', 'genre7': 'classical','genre8': 'jazz'}
