@@ -96,7 +96,7 @@
                   <li>
                     <div class="search-bar">
                       <div id="select">
-                        <p id = "selectText">All Categories</p>
+                        <p id = "selectText">Please Select Search Category</p>
                         <img src="{% static 'media/SearchBarArrow.png' %}">
                         <ul id="list">
                           <li class="options">Album</li>
@@ -106,11 +106,11 @@
                         </ul>
                       </div>
                       <input
-                        type="text" id = "inputField"
-                        
+                        type="text" placeholder = "Select Category"
+                        id = "inputField" disabled
                       />
-                      <button type="button" class="btn btn-outline-primary">
-                        search
+                      <button type="button" class="btn btn-outline-primary" id="SearchButton" disabled>
+                        Search
                       </button>
                     </div>
                   </li>
@@ -208,6 +208,8 @@
       }
     for (option of options){
       option.onclick = function(){
+        inputField.disabled = false;
+        SearchButton.disabled = false;
         selectText.innerHTML = this.innerHTML;
         inputField.placeholder = "Search In " + selectText.innerHTML;
       }
