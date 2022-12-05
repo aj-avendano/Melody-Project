@@ -91,7 +91,6 @@
                   <span class="fs-4">&nbsp;&nbsp;Melody</span>
                 </a>
                 <hr />
-
                 <ul class="nav nav-pills flex-column mb-auto">
                   <li>
                     <!-- JASON SEARCHBAR CHANGES -->
@@ -115,7 +114,6 @@
                       </button>
                     </div>
                   </li>
-
                   <!-- JASON SEARCHBAR CHANGES -->
                   <li>
                     <hr class="border border-primary border-4 opacity-75" />
@@ -158,6 +156,11 @@
                   <button id="Preferences" class="btn btn-primary" type="button" name="button">Preferences</button>
                   <script type="text/javascript">
                   $(document).ready(function() {
+
+$('#modal-footer').on('click', 'button.close', function (eventObject) {
+    $('#modal-footer').modal('hide');
+});
+
 
                       $("#Preferences").modalForm({
                           formURL: "{% url 'dash_app:UserPreferences' %}"
