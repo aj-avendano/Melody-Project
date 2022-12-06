@@ -80,8 +80,8 @@ class UserPreferenceView(LoginRequiredMixin,BSModalCreateView):
 
 
 ##Function Written by Jason Eissayou
-def dashboard(request):
-	return render(request=request, template_name='dash_app/dashboard.html')
+#def dashboard(request):
+#	return render(request=request, template_name='dash_app/dashboard.html')
 
 #Function created Kuldeep
 def homepage(request):
@@ -98,7 +98,7 @@ def register_request(request):
 			login(request, user)
 			messages.success(request, "Registration successful." )
 			#If signup is successful the you will be redirected to dashboard page.
-			return redirect("dash_app:dashboard")
+			return redirect("dash_app:dashboardHome")
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm()
 	#If login is unsuccessful the you will be redirected to register page.
@@ -121,7 +121,7 @@ class LoginRequest(View):
 			if user is not None:
 				login(request, user)
 				messages.info(request, f'You are now logged in as {username}.')
-				return redirect ('dash_app:dashboard')
+				return redirect ('dash_app:dashboardHome')
 			else:
 				messages.error(request,'Invalid username or password.')
 		else:
