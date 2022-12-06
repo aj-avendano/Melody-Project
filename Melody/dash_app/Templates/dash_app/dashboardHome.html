@@ -130,7 +130,21 @@
           <h3 class="fs-2">Create New Playlist</h3>
         </div>
         <div class="row p-2 d-flex justify-content-center">
-          <button type="button" class="btn btn-outline-primary">Create</button>
+          <button
+            id="create-playlist"
+            name="button"
+            type="button"
+            class="btn btn-outline-primary"
+          >
+            Create
+          </button>
+          <script type="text/javascript">
+            $(document).ready(function () {
+              $("#create-playlist").modalForm({
+                formURL: "{% url 'dash_app:create_playlist' %}",
+              });
+            });
+          </script>
         </div>
       </div>
     </div>
