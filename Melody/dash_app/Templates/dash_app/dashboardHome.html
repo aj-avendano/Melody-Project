@@ -112,58 +112,26 @@
 <main>
   <div class="container-fluid px-4 py-5" id="featured-3">
     <h2 class="pb-2 border-bottom">Dashboard</h2>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="feature col">
-        <div
-          class="feature-icon d-inline-flex align-items-center justify-content-center bg-gradient mb-3"
-          id="item1"
-        >
-          <svg class="bi" width="1em" height="1em">
-            <use xlink:href="#collection" />
-          </svg>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3" id="row-1">
+      {% comment %} Column for Manual playlist generator {% endcomment %}
+      <div class="feature col p-3 border bg-light">
+        <div class="row p-2 d-flex justify-content-center">
+          <div
+            class="feature-icon d-inline-flex align-items-center justify-content-center bg-gradient mb-3"
+            id="item1"
+          >
+            <svg class="bi" width="1em" height="1em">
+              <use xlink:href="#collection" />
+            </svg>
+          </div>
         </div>
-        <h3 class="fs-2">Gym Playlist</h3>
-        <p>Play</p>
-        <a href="#" class="icon-link d-inline-flex align-items-center">
-          Call to action
-          <svg class="bi" width="1em" height="1em">
-            <use xlink:href="#chevron-right" />
-          </svg>
-        </a>
-      </div>
-      <div class="feature col">
-        <div
-          class="feature-icon d-inline-flex align-items-center justify-content-center bg-gradient mb-3"
-        >
-          <svg class="bi" width="1em" height="1em">
-            <use xlink:href="#people-circle" />
-          </svg>
+
+        <div class="row p-2 d-flex justify-content-center">
+          <h3 class="fs-2">Create New Playlist</h3>
         </div>
-        <h3 class="fs-2">Study Playlist</h3>
-        <p>Play</p>
-        <a href="#" class="icon-link d-inline-flex align-items-center">
-          Call to action
-          <svg class="bi" width="1em" height="1em">
-            <use xlink:href="#chevron-right" />
-          </svg>
-        </a>
-      </div>
-      <div class="feature col">
-        <div
-          class="feature-icon d-inline-flex align-items-center justify-content-center bg-gradient mb-3"
-        >
-          <svg class="bi" width="1em" height="1em">
-            <use xlink:href="#toggles2" />
-          </svg>
+        <div class="row p-2 d-flex justify-content-center">
+          <button type="button" class="btn btn-outline-primary">Create</button>
         </div>
-        <h3 class="fs-2">Chill Playlist</h3>
-        <p>Play</p>
-        <a href="#" class="icon-link d-inline-flex align-items-center">
-          Call to action
-          <svg class="bi" width="1em" height="1em">
-            <use xlink:href="#chevron-right" />
-          </svg>
-        </a>
       </div>
     </div>
   </div>
