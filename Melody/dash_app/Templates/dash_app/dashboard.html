@@ -163,7 +163,7 @@
                           disabled
                         />
                       </form>
-
+                      {% comment %}
                       <button
                         type="button"
                         class="btn btn-outline-primary"
@@ -172,6 +172,7 @@
                       >
                         Search
                       </button>
+                      {% endcomment %}
                     </div>
                   </li>
                   <li>
@@ -198,6 +199,7 @@
                       Generate Playlist
                     </a>
                   </li>
+                  {% comment %}
                   <li>
                     <!-- Authorship of Preferences: Joaquin Johnson -->
                     <a
@@ -211,6 +213,22 @@
                       </svg>
                       Preferences
                     </a>
+                  </li>
+                  {% endcomment %}
+                  <li>
+                    <a
+                      id="Preferences"
+                      href="#"
+                      class="nav-link link-dark"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <svg class="bi pe-none me-2" width="16" height="16">
+                        <use xlink:href="#heart" />
+                      </svg>
+                      Preferences
+                    </a>
+                    <!-- Authorship of Preferences: Joaquin Johnson -->
                     <div
                       class="modal fade"
                       tabindex="-1"
@@ -221,14 +239,6 @@
                         <div class="modal-content"></div>
                       </div>
                     </div>
-                    <button
-                      id="Preferences"
-                      class="btn btn-primary"
-                      type="button"
-                      name="button"
-                    >
-                      Preferences
-                    </button>
                     <script type="text/javascript">
                       $(document).ready(function () {
                         $("#Preferences").modalForm({
@@ -253,8 +263,7 @@
                     <strong>&nbsp;&nbsp;{{user |capfirst}}</strong>
                   </a>
                   <ul class="dropdown-menu text-small shadow">
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Prefences</a></li>
+                    <li><a class="dropdown-item" href="#">Preferences</a></li>
                     <li><hr class="dropdown-divider" /></li>
                     <li><a class="dropdown-item" href="#">Sign out</a></li>
                   </ul>
@@ -281,7 +290,7 @@
           };
           for (option of options) {
             option.onclick = function () {
-              SearchButton.disabled = false;
+              /*SearchButton.disabled = false;*/
               selectText.innerHTML = this.innerHTML;
               if (selectText.innerHTML == "Genre") {
                 albumInputField.setAttribute("style", "display:none");
