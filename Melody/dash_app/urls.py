@@ -17,6 +17,8 @@ urlpatterns = [
     path('create_playlist', views.PlayListCreateView.as_view(), name='create_playlist'),
     path('UserPreferences', views.UserPreferenceView.as_view(), name='UserPreferences'),
     path('search', views.SearchGenre.as_view(), name="search_results"),
+    path('search_genre_artist', views.SearchArtistsInGenre.as_view(), name="search_genre_artist"),
+
 
 ]
 

@@ -1,0 +1,18 @@
+<!-- ##dec -->
+
+{% extends "dash_app/search_genre.html" %}
+{% load static %}
+{% block title%}
+Search{% endblock%} {% block content %}
+
+<h1>Search Artist</h1>
+
+<ul>
+  {% for artist in object_list %}
+    <li>
+      {{ artist.name }}
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
