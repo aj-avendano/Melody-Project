@@ -2,11 +2,11 @@
   padding: 0px;
 }
 H1 {
-  color: blueviolet;
+  color: #1c77fd;
   text-align: center;
   background-color: white;
   border-style: solid;
-  border-color: Green;
+  border-color: #1c77fd;
 }
 
 #Side {
@@ -25,40 +25,38 @@ H1 {
   padding: 0px;
 }
 
-
-
 /*JASON SEARCHBAR CHANGES */
 
-#select{
-  display:flex;
-  align-items:center;
+#select {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  color:#555;
-  width:300px;
-  padding:25px 20px;
+  color: #555;
+  width: 300px;
+  padding: 25px 20px;
   cursor: pointer;
   position: relative;
-  border-radius:4px;
+  border-radius: 4px;
 }
 
-#select img{
-  width:15px;
+#select img {
+  width: 15px;
 }
 
-#select ul{
-  position:absolute;
-  top:60%;
-  left:0;
+#select ul {
+  position: absolute;
+  top: 60%;
+  left: 0;
   list-style: none;
-  background:#555;
-  color:#999;
-  width:100%;
-  border-radius:4px;
-  max-height:0;
-  overflow:hidden;
-  transition:max-height 0.5s;
-
+  background: #555;
+  color: #999;
+  width: 100%;
+  border-radius: 4px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s;
 }
+/*  
 #select ul li{
   padding 10px 20px;
   cursor: pointer;
@@ -71,8 +69,9 @@ H1 {
   outline = none;
   font-size 18;
 }
-#select ul.open{
-  max-height:300px;
+*/
+#select ul.open {
+  max-height: 300px;
 }
 
 /*JASON SEARCHBAR CHANGES */
