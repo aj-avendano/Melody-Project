@@ -45,6 +45,14 @@ class SearchSong(ListView):
         object_list= Song.objects.filter(Q(Song_name__icontains=query))
         return object_list
 
+class SearchArtistsInGenre(ListView):
+    model=Artist
+    template_name='dash_app/search_results_artist.html'
+    def get_queryset(self):
+        query = self.request.GET.get("q")
+        object_list= Artist.objects.filter(genre__genre_name__icontains=query)
+        return object_list
+
 class PlayListCreateView(LoginRequiredMixin,BSModalCreateView):
     template_name = 'dash_app/playlistform.html'
     form_class = PlaylistForm

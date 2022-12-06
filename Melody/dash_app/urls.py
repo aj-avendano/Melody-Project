@@ -20,6 +20,8 @@ urlpatterns = [
     path('search', views.SearchArtist.as_view(), name="search_results_artist"),
     path('search', views.SearchSong.as_view(), name="search_results_song"),
     path('search', views.SearchAlbum.as_view(), name="search_results_album"),
+    # path('search', views.SearchGenre.as_view(), name="search_results"),
+    path('search_genre_artist', views.SearchArtistsInGenre.as_view(), name="search_genre_artist"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

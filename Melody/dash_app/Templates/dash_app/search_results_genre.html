@@ -1,4 +1,10 @@
 <!-- templates/search_results.html -->
+
+{% extends "dash_app/dashboard.html" %}
+{% load static %}
+{% block title%}
+Search{% endblock%} {% block content %}
+
 <h1>Search Results</h1>
 
 <ul>
@@ -8,3 +14,5 @@
     </li>
   {% endfor %}
 </ul>
+
+{% endblock %}
