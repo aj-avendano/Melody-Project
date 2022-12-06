@@ -22,10 +22,8 @@
         crossorigin="anonymous"
       ></script>
 
-
       <!--Search bar JS that JASON added -->
       <!-- script src="{% static 'media/SearchBarJS.js' %}"></script> -->
-
 
       <!-- CSS Style Sheet Path -->
       <link rel="stylesheet" href="{% static 'media/sidebars.css'%}" />
@@ -96,8 +94,8 @@
                   <li>
                     <div class="search-bar">
                       <div id="select">
-                        <p id = "selectText">Please Select Search Category</p>
-                        <img src="{% static 'media/SearchBarArrow.png' %}">
+                        <p id="selectText">Please Select Search Category</p>
+                        <img src="{% static 'media/SearchBarArrow.png' %}" />
                         <ul id="list">
                           <li class="options">Album</li>
                           <li class="options">Artist</li>
@@ -107,27 +105,71 @@
                       </div>
 
                       <!-- GENRE -->
-                      <form action="{% url 'dash_app:search_results_genre' %}" method="get">
-                        <input name="q" type="text" placeholder="Search Genre" id = "genreInputField" style="display:none" disabled>
+                      <form
+                        action="{% url 'dash_app:search_results_genre' %}"
+                        method="get"
+                      >
+                        <input
+                          name="q"
+                          type="text"
+                          placeholder="Search Genre"
+                          id="genreInputField"
+                          style="display: none"
+                          disabled
+                        />
                       </form>
-                      
+
                       <!-- ARTIST -->
-                      <form action="{% url 'dash_app:search_results_artist' %}" method="get">
-                        <input name="q" type="text" placeholder="Search Artist" id = "artistInputField" style="display:none" disabled>
+                      <form
+                        action="{% url 'dash_app:search_results_artist' %}"
+                        method="get"
+                      >
+                        <input
+                          name="q"
+                          type="text"
+                          placeholder="Search Artist"
+                          id="artistInputField"
+                          style="display: none"
+                          disabled
+                        />
                       </form>
 
                       <!-- ALBUM -->
-                      <form action="{% url 'dash_app:search_results_album' %}" method="get">
-                        <input name="q" type="text" placeholder="Search Album" id = "albumInputField" style="display:none" disabled>
+                      <form
+                        action="{% url 'dash_app:search_results_album' %}"
+                        method="get"
+                      >
+                        <input
+                          name="q"
+                          type="text"
+                          placeholder="Search Album"
+                          id="albumInputField"
+                          style="display: none"
+                          disabled
+                        />
                       </form>
 
                       <!-- SONG -->
-                      <form action="{% url 'dash_app:search_results_song' %}" method="get">
-                        <input name="q" type="text" placeholder="Search Song" id = "songInputField" style="display:none" disabled>
+                      <form
+                        action="{% url 'dash_app:search_results_song' %}"
+                        method="get"
+                      >
+                        <input
+                          name="q"
+                          type="text"
+                          placeholder="Search Song"
+                          id="songInputField"
+                          style="display: none"
+                          disabled
+                        />
                       </form>
 
-
-                      <button type="button" class="btn btn-outline-primary" id="SearchButton" disabled>
+                      <button
+                        type="button"
+                        class="btn btn-outline-primary"
+                        id="SearchButton"
+                        disabled
+                      >
                         Search
                       </button>
                     </div>
@@ -156,30 +198,44 @@
                       Generate Playlist
                     </a>
                   </li>
-                  <li> <!-- Authorship of Preferences: Joaquin Johnson -->
-                    <a href="/preferences" class="nav-link link-dark"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                  <li>
+                    <!-- Authorship of Preferences: Joaquin Johnson -->
+                    <a
+                      href="/preferences"
+                      class="nav-link link-dark"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
                       <svg class="bi pe-none me-2" width="16" height="16">
                         <use xlink:href="#heart" />
                       </svg>
                       Preferences
                     </a>
-                    <div class="modal fade" tabindex="-1" role="dialog" id="modal">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content"></div>
+                    <div
+                      class="modal fade"
+                      tabindex="-1"
+                      role="dialog"
+                      id="modal"
+                    >
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content"></div>
+                      </div>
                     </div>
-                  </div>
-                  <button id="Preferences" class="btn btn-primary" type="button" name="button">Preferences</button>
-                  <script type="text/javascript">
-                  $(document).ready(function() {
-
-                      $("#Preferences").modalForm({
-                          formURL: "{% url 'dash_app:UserPreferences' %}"
+                    <button
+                      id="Preferences"
+                      class="btn btn-primary"
+                      type="button"
+                      name="button"
+                    >
+                      Preferences
+                    </button>
+                    <script type="text/javascript">
+                      $(document).ready(function () {
+                        $("#Preferences").modalForm({
+                          formURL: "{% url 'dash_app:UserPreferences' %}",
+                        });
                       });
-
-                  });
-                  </script>
+                    </script>
                   </li>
                 </ul>
                 <hr />
@@ -194,7 +250,7 @@
                     <svg class="bi pe-none me-2" width="40" height="40">
                       <use xlink:href="#people-circle" />
                     </svg>
-                    <strong>&nbsp;&nbsp;User</strong>
+                    <strong>&nbsp;&nbsp;{{user |capfirst}}</strong>
                   </a>
                   <ul class="dropdown-menu text-small shadow">
                     <li><a class="dropdown-item" href="#">Settings</a></li>
@@ -207,71 +263,55 @@
             </main>
           </div>
           <div class="col-8 col-md-9" id="col2">
-            <div>{% block content %} {% endblock %}
-              <button id="create-playlist" class="btn btn-primary" type="button" name="button">Create playlist</button>
-              <script type="text/javascript">
-              $(document).ready(function() {
-
-                $("#create-playlist").modalForm({
-                    formURL: "{% url 'dash_app:create_playlist' %}"
-                });
-
-              });
-              </script>
-
-            </div>
+            <div>{% block content %} {% endblock %}</div>
           </div>
         </div>
       </div>
 
       <script>
-      let select = document.getElementById("select")
-      let list = document.getElementById("list")
-      let selectText = document.getElementById("selectText")
-      let inputField = document.getElementById("inputField")
+        let select = document.getElementById("select");
+        let list = document.getElementById("list");
+        let selectText = document.getElementById("selectText");
+        let inputField = document.getElementById("inputField");
 
-      let options = document.getElementsByClassName("options")
-      window.onload = function(){
-      select.onclick = function(){
-        list.classList.toggle("open");
-      }
-        for (option of options){
-      option.onclick = function(){
-        SearchButton.disabled = false;
-        selectText.innerHTML = this.innerHTML;
-      if (selectText.innerHTML == "Genre"){
-      albumInputField.setAttribute('style','display:none')
-      songInputField.setAttribute('style','display:none')
-      artistInputField.setAttribute('style','display:none')
-      genreInputField.removeAttribute('style');
-      genreInputField.removeAttribute('disabled');
-    }
-    else if (selectText.innerHTML == "Album"){
-      genreInputField.setAttribute('style','display:none')
-      songInputField.setAttribute('style','display:none')
-      artistInputField.setAttribute('style','display:none')
-      albumInputField.removeAttribute('style');
-      albumInputField.removeAttribute('disabled');
-    }
-    else if (selectText.innerHTML == "Song"){
-      albumInputField.setAttribute('style','display:none')
-      genreInputField.setAttribute('style','display:none')
-      artistInputField.setAttribute('style','display:none')
-      songInputField.removeAttribute('style');
-      songInputField.removeAttribute('disabled');
-    }
-    else if (selectText.innerHTML == "Artist"){
-      albumInputField.setAttribute('style','display:none')
-      songInputField.setAttribute('style','display:none')
-      genreInputField.setAttribute('style','display:none')
-      artistInputField.removeAttribute('style');
-      artistInputField.removeAttribute('disabled');
-    }
-      }
-    }
-
-};
-</script>
+        let options = document.getElementsByClassName("options");
+        window.onload = function () {
+          select.onclick = function () {
+            list.classList.toggle("open");
+          };
+          for (option of options) {
+            option.onclick = function () {
+              SearchButton.disabled = false;
+              selectText.innerHTML = this.innerHTML;
+              if (selectText.innerHTML == "Genre") {
+                albumInputField.setAttribute("style", "display:none");
+                songInputField.setAttribute("style", "display:none");
+                artistInputField.setAttribute("style", "display:none");
+                genreInputField.removeAttribute("style");
+                genreInputField.removeAttribute("disabled");
+              } else if (selectText.innerHTML == "Album") {
+                genreInputField.setAttribute("style", "display:none");
+                songInputField.setAttribute("style", "display:none");
+                artistInputField.setAttribute("style", "display:none");
+                albumInputField.removeAttribute("style");
+                albumInputField.removeAttribute("disabled");
+              } else if (selectText.innerHTML == "Song") {
+                albumInputField.setAttribute("style", "display:none");
+                genreInputField.setAttribute("style", "display:none");
+                artistInputField.setAttribute("style", "display:none");
+                songInputField.removeAttribute("style");
+                songInputField.removeAttribute("disabled");
+              } else if (selectText.innerHTML == "Artist") {
+                albumInputField.setAttribute("style", "display:none");
+                songInputField.setAttribute("style", "display:none");
+                genreInputField.setAttribute("style", "display:none");
+                artistInputField.removeAttribute("style");
+                artistInputField.removeAttribute("disabled");
+              }
+            };
+          }
+        };
+      </script>
     </body>
   </html>
 </html>
