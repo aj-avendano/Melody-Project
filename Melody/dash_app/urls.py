@@ -16,8 +16,10 @@ urlpatterns = [
     path('generator', views.generator, name="generator"),
     path('create_playlist', views.PlayListCreateView.as_view(), name='create_playlist'),
     path('UserPreferences', views.UserPreferenceView.as_view(), name='UserPreferences'),
-    path('search', views.SearchGenre.as_view(), name="search_results"),
-
+    path('search', views.SearchGenre.as_view(), name="search_results_genre"),
+    path('search', views.SearchArtist.as_view(), name="search_results_artist"),
+    path('search', views.SearchSong.as_view(), name="search_results_song"),
+    path('search', views.SearchAlbum.as_view(), name="search_results_album"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

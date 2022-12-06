@@ -18,10 +18,31 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class SearchGenre(ListView):
     model=Genre
-    template_name='dash_app/search_results.html'
+    template_name='dash_app/search_results_genre.html'
     def get_queryset(self):
         query = self.request.GET.get("q")
         object_list= Genre.objects.filter(Q(genre_name__icontains=query))
+        return object_list
+class SearchAlbum(ListView):
+    model=Album
+    template_name='dash_app/search_results_album.html'
+    def get_queryset(self):
+        query = self.request.GET.get("q")
+        object_list= Album.objects.filter(Q(album_name__icontains=query))
+        return object_list
+class SearchArtist(ListView):
+    model=Artist
+    template_name='dash_app/search_results_artist.html'
+    def get_queryset(self):
+        query = self.request.GET.get("q")
+        object_list= Artist.objects.filter(Q(name__icontains=query))
+        return object_list
+class SearchSong(ListView):
+    model=Song
+    template_name='dash_app/search_results_song.html'
+    def get_queryset(self):
+        query = self.request.GET.get("q")
+        object_list= Song.objects.filter(Q(Song_name__icontains=query))
         return object_list
 
 class PlayListCreateView(LoginRequiredMixin,BSModalCreateView):

@@ -105,13 +105,28 @@
                           <li class="options">Song</li>
                         </ul>
                       </div>
-                      <form action="{% url 'dash_app:search_results' %}" method="get">
-                        <input name="q" type="text" placeholder="Search...">
+
+                      <!-- GENRE -->
+                      <form action="{% url 'dash_app:search_results_genre' %}" method="get">
+                        <input name="q" type="text" placeholder="Search Genre" id = "genreInputField" style="display:none" disabled>
                       </form>
-                      <input
-                        type="text" placeholder = "Select Category"
-                        id = "inputField" disabled
-                      />
+                      
+                      <!-- ARTIST -->
+                      <form action="{% url 'dash_app:search_results_artist' %}" method="get">
+                        <input name="q" type="text" placeholder="Search Artist" id = "artistInputField" style="display:none" disabled>
+                      </form>
+
+                      <!-- ALBUM -->
+                      <form action="{% url 'dash_app:search_results_album' %}" method="get">
+                        <input name="q" type="text" placeholder="Search Album" id = "albumInputField" style="display:none" disabled>
+                      </form>
+
+                      <!-- SONG -->
+                      <form action="{% url 'dash_app:search_results_song' %}" method="get">
+                        <input name="q" type="text" placeholder="Search Song" id = "songInputField" style="display:none" disabled>
+                      </form>
+
+
                       <button type="button" class="btn btn-outline-primary" id="SearchButton" disabled>
                         Search
                       </button>
@@ -210,7 +225,7 @@
       </div>
 
       <script>
-              let select = document.getElementById("select")
+      let select = document.getElementById("select")
       let list = document.getElementById("list")
       let selectText = document.getElementById("selectText")
       let inputField = document.getElementById("inputField")
@@ -220,14 +235,41 @@
       select.onclick = function(){
         list.classList.toggle("open");
       }
-    for (option of options){
+        for (option of options){
       option.onclick = function(){
-        inputField.disabled = false;
         SearchButton.disabled = false;
         selectText.innerHTML = this.innerHTML;
-        inputField.placeholder = "Search In " + selectText.innerHTML;
+      if (selectText.innerHTML == "Genre"){
+      albumInputField.setAttribute('style','display:none')
+      songInputField.setAttribute('style','display:none')
+      artistInputField.setAttribute('style','display:none')
+      genreInputField.removeAttribute('style');
+      genreInputField.removeAttribute('disabled');
+    }
+    else if (selectText.innerHTML == "Album"){
+      genreInputField.setAttribute('style','display:none')
+      songInputField.setAttribute('style','display:none')
+      artistInputField.setAttribute('style','display:none')
+      albumInputField.removeAttribute('style');
+      albumInputField.removeAttribute('disabled');
+    }
+    else if (selectText.innerHTML == "Song"){
+      albumInputField.setAttribute('style','display:none')
+      genreInputField.setAttribute('style','display:none')
+      artistInputField.setAttribute('style','display:none')
+      songInputField.removeAttribute('style');
+      songInputField.removeAttribute('disabled');
+    }
+    else if (selectText.innerHTML == "Artist"){
+      albumInputField.setAttribute('style','display:none')
+      songInputField.setAttribute('style','display:none')
+      genreInputField.setAttribute('style','display:none')
+      artistInputField.removeAttribute('style');
+      artistInputField.removeAttribute('disabled');
+    }
       }
     }
+
 };
 </script>
     </body>
