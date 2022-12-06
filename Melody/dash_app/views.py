@@ -7,30 +7,48 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.exceptions import PermissionDenied
 from django.views import View
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.views.generic import  ListView, DetailView,TemplateView
 from dash_app.models import Playlist,PlaylistItems,UserPreferenceRecord,Genre,Artist,Album,Song
 from bootstrap_modal_forms.generic import BSModalCreateView,BSModalFormView
-from dash_app.forms import PlaylistForm, UserPreferenceForm,CreateNewList
+from dash_app.forms import PlaylistForm, UserPreferenceForm,CreateNewList,PlaylistItemsForm
 from django.urls import reverse_lazy
-from .forms import CreateNewList
+from django.db.models import Q # new
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class PlayListCreateView(BSModalCreateView):
+class SearchGenre(ListView):
+    model=Genre
+    template_name='dash_app/search_results.html'
+    def get_queryset(self):
+        query = self.request.GET.get("q")
+        object_list= Genre.objects.filter(Q(genre_name__icontains=query))
+        return object_list
+
+class PlayListCreateView(LoginRequiredMixin,BSModalCreateView):
     template_name = 'dash_app/playlistform.html'
     form_class = PlaylistForm
-    success_message = 'Success: Book was created.'
-    success_url = reverse_lazy('test')
+    success_message = 'Success: playlist was created.'
+    success_url = reverse_lazy('dash_app:dashboard')
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
-##class UserPreferenceView(BSModalCreateView): # class by Joaquin Johnson
-##    template_name = 'dash_app/preferences.html'
-##    form_class = UserPreferenceForm
-##    success_message = 'Success: Book was created.'
-##    success_url = reverse_lazy('test')
-class UserPreferenceView(BSModalFormView):
+class PlaylistItemsCreateView(BSModalCreateView):
+    template_name = 'dash_app/playlistform.html'
+    form_class = PlaylistItemsForm
+    success_message = 'Success: item was added.'
+    success_url = reverse_lazy('dash_app:dashboard')
+
+class UserPreferenceView(LoginRequiredMixin,BSModalCreateView):
     template_name = 'dash_app/preferences.html'
     form_class = UserPreferenceForm
-    success_url = 'dash_app/dashboard.html'
+    success_message = 'Success: preference was created.'
+    success_url = reverse_lazy('dash_app:dashboard')
     def form_valid(self, form):
-        return super(UserPreferenceForm, self).form_valid(form)
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+
 
 ##Function Written by Jason Eissayou
 def dashboard(request):
@@ -99,7 +117,7 @@ def generator(request):
 
 	return render(request=request, template_name='dash_app/generator.html')
 def playlist(request):
-	return render(request=request, template_name='dash_app/test.html')
+	return render(request=request, template_name='dash_app/testsearch.html')
 
 def generator(request): #Jaimit
 	if request.method == "POST":
@@ -115,6 +133,7 @@ def generator(request): #Jaimit
 			list1.append(Genre) ##adds the name to the list but can't print it out from page
 			list1.append(Artist)
 			list1.append(Song)
+
 		return HttpResponseRedirect("dashboardHome") #if entries valid returns to this page
 
 	else:

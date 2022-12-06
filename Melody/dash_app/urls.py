@@ -14,10 +14,9 @@ urlpatterns = [
     path('dashboardHome', views.dashboardHome, name="dashboardHome"),
     path('preferences', views.preferences, name="preferences"),
     path('generator', views.generator, name="generator"),
-    path('create_book', views.PlayListCreateView.as_view(), name='create_book'),
+    path('create_playlist', views.PlayListCreateView.as_view(), name='create_playlist'),
     path('UserPreferences', views.UserPreferenceView.as_view(), name='UserPreferences'),
-    path('add', views.playlist, name='add'),
-    
+    path('search', views.SearchGenre.as_view(), name="search_results"),
 
 ]
 

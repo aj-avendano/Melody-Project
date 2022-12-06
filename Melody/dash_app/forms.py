@@ -3,12 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from dash_app.models import Playlist,PlaylistItems,UserPreferenceRecord,Genre,Artist,Album,Song
 from bootstrap_modal_forms.forms import BSModalModelForm, BSModalForm
-
-
-
 # Create your forms here.
-
-
 class CreateNewList(forms.Form): #Jaimit
     # name = forms.CharField(label="Name...", max_length=100)
     Genre = forms.CharField(label="Genre:", max_length=100, required=False)
@@ -32,7 +27,11 @@ class PlaylistForm(BSModalModelForm):
 	class Meta:
 		model = Playlist
 		fields = ['playlist_title']
-class UserPreferenceForm(BSModalForm): # class by Joaquin Johnson
-    genre=forms.ModelChoiceField(queryset=Genre.objects.all())
-    artist=forms.CharField()
-    song=forms.CharField()
+class PlaylistItemsForm(BSModalModelForm):
+	class Meta:
+		model = PlaylistItems
+		fields = ['artist','album','song']
+class UserPreferenceForm(BSModalModelForm):
+	class Meta:
+		model = UserPreferenceRecord
+		fields = ['genre','artist','song']

@@ -91,9 +91,9 @@
                   <span class="fs-4">&nbsp;&nbsp;Melody</span>
                 </a>
                 <hr />
+
                 <ul class="nav nav-pills flex-column mb-auto">
                   <li>
-                    <!-- JASON SEARCHBAR CHANGES -->
                     <div class="search-bar">
                       <div id="select">
                         <p id = "selectText">Please Select Search Category</p>
@@ -105,6 +105,9 @@
                           <li class="options">Song</li>
                         </ul>
                       </div>
+                      <form action="{% url 'dash_app:search_results' %}" method="get">
+                        <input name="q" type="text" placeholder="Search...">
+                      </form>
                       <input
                         type="text" placeholder = "Select Category"
                         id = "inputField" disabled
@@ -114,7 +117,6 @@
                       </button>
                     </div>
                   </li>
-                  <!-- JASON SEARCHBAR CHANGES -->
                   <li>
                     <hr class="border border-primary border-4 opacity-75" />
                   </li>
@@ -157,11 +159,6 @@
                   <script type="text/javascript">
                   $(document).ready(function() {
 
-$('#modal-footer').on('click', 'button.close', function (eventObject) {
-    $('#modal-footer').modal('hide');
-});
-
-
                       $("#Preferences").modalForm({
                           formURL: "{% url 'dash_app:UserPreferences' %}"
                       });
@@ -195,11 +192,22 @@ $('#modal-footer').on('click', 'button.close', function (eventObject) {
             </main>
           </div>
           <div class="col-8 col-md-9" id="col2">
-            <div>{% block content %} {% endblock %}</div>
+            <div>{% block content %} {% endblock %}
+              <button id="create-playlist" class="btn btn-primary" type="button" name="button">Create playlist</button>
+              <script type="text/javascript">
+              $(document).ready(function() {
+
+                $("#create-playlist").modalForm({
+                    formURL: "{% url 'dash_app:create_playlist' %}"
+                });
+
+              });
+              </script>
+
+            </div>
           </div>
         </div>
       </div>
-
 
       <script>
               let select = document.getElementById("select")
@@ -208,7 +216,7 @@ $('#modal-footer').on('click', 'button.close', function (eventObject) {
       let inputField = document.getElementById("inputField")
 
       let options = document.getElementsByClassName("options")
-      window.onload = function(){ 
+      window.onload = function(){
       select.onclick = function(){
         list.classList.toggle("open");
       }
@@ -220,9 +228,8 @@ $('#modal-footer').on('click', 'button.close', function (eventObject) {
         inputField.placeholder = "Search In " + selectText.innerHTML;
       }
     }
-}; 
+};
 </script>
-
     </body>
   </html>
 </html>

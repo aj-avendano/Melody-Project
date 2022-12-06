@@ -1,0 +1,10 @@
+<!-- templates/search_results.html -->
+<h1>Search Results</h1>
+
+<ul>
+  {% for genre in object_list %}
+    <li>
+      {{ genre.genre_name }}
+    </li>
+  {% endfor %}
+</ul>
