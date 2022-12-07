@@ -34,4 +34,4 @@ class PlaylistItemsForm(BSModalModelForm):
 class UserPreferenceForm(BSModalModelForm):
 	class Meta:
 		model = UserPreferenceRecord
-		fields = ['genre']
+		fields = ['genre', 'artist', 'song']
