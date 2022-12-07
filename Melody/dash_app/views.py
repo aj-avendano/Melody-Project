@@ -8,13 +8,18 @@ from django.core.exceptions import PermissionDenied
 from django.views import View
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic import  ListView, DetailView,TemplateView
-from dash_app.models import Playlist,PlaylistItems,UserPreferenceRecord,Genre,Artist,Album,Song
+from .models import Playlist,PlaylistItems,UserPreferenceRecord,Genre,Artist,Album,Song
 from bootstrap_modal_forms.generic import BSModalCreateView,BSModalFormView
-from dash_app.forms import PlaylistForm, UserPreferenceForm,CreateNewList,PlaylistItemsForm
+from .forms import PlaylistForm, UserPreferenceForm,CreateNewList,PlaylistItemsForm
 from django.urls import reverse_lazy
 from django.db.models import Q # new
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
+class dashboardHome(ListView):
+	model = Playlist
+	template_name= 'dash_app/dashboardHome.html'
+	
 
 class SearchGenre(ListView):
     model=Genre
@@ -78,14 +83,24 @@ class UserPreferenceView(LoginRequiredMixin,BSModalCreateView):
         return super().form_valid(form)
 
 
+	
+
+	#@login_required
+#def dashboardHome(request):
+
+#	return render(request=request, template_name='dash_app/dashboardHome.html')	
+
+
 
 ##Function Written by Jason Eissayou
 #def dashboard(request):
 #	return render(request=request, template_name='dash_app/dashboard.html')
 
-#Function created Kuldeep
+
+
+	#Function created by Kuldeep 
 def homepage(request):
-	#takes you to he home page
+	#takes you to the home page
 	return render(request=request, template_name='dash_app/home.html')
 
 #Function created Kuldeep
@@ -127,15 +142,21 @@ class LoginRequest(View):
 		else:
 			messages.error(request,'Invalid username or password.')
 
+# Created by Kuldeep 
 def logout_request(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.")
 	#redirected to login page.
 	return redirect("dash_app:login")
 
-def dashboardHome(request):
+#@login_required
+#def dashboardHome(request):
 
-	return render(request=request, template_name='dash_app/dashboardHome.html')
+#	return render(request=request, template_name='dash_app/dashboardHome.html')
+
+
+
+
 
 
 def preferences(request):
