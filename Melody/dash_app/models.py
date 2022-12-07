@@ -48,3 +48,4 @@ class UserPreferenceRecord(models.Model): #class by Joaquin Johnson
     genre=models.ForeignKey(Genre,on_delete=models.CASCADE)
     artist=models.CharField(max_length=25, null=True)
     song=models.CharField(max_length=25, null=True)
+
