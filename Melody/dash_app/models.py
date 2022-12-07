@@ -43,9 +43,9 @@ class SongLyrics(models.Model):#class by Jaimit
 #/Melody>>python manage.py makemigrations dash_app
 #/Melody>python manage.py sqlmigrate dash_app 000i
 #>>>from dash_app.models import Genre, Artist, Song, ALbum, SongLyrics
-class UserPreferenceRecord(models.Model): #class by Joaquin Johnson
+
+class UserPreferenceRecord(models.Model): # Class Authorship: Joaquin Johnson
     user=models.ForeignKey(User,on_delete=models.CASCADE)#One(profile)To Many FavoriteGenres relationship
     genre=models.ForeignKey(Genre,on_delete=models.CASCADE)
     artist=models.CharField(max_length=25, null=True)
     song=models.CharField(max_length=25, null=True)
-

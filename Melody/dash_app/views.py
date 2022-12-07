@@ -19,7 +19,7 @@ from django.contrib.auth.decorators import login_required
 class dashboardHome(ListView):
 	model = Playlist
 	template_name= 'dash_app/dashboardHome.html'
-	
+
 
 class SearchGenre(ListView):
     model=Genre
@@ -73,6 +73,7 @@ class PlaylistItemsCreateView(BSModalCreateView):
     success_message = 'Success: item was added.'
     success_url = reverse_lazy('dash_app:dashboard')
 
+#Class Authorship: Joaquin Johnson
 class UserPreferenceView(LoginRequiredMixin,BSModalCreateView):
     template_name = 'dash_app/preferences.html'
     form_class = UserPreferenceForm
@@ -83,12 +84,12 @@ class UserPreferenceView(LoginRequiredMixin,BSModalCreateView):
         return super().form_valid(form)
 
 
-	
+
 
 	#@login_required
 #def dashboardHome(request):
 
-#	return render(request=request, template_name='dash_app/dashboardHome.html')	
+#	return render(request=request, template_name='dash_app/dashboardHome.html')
 
 
 
@@ -98,7 +99,7 @@ class UserPreferenceView(LoginRequiredMixin,BSModalCreateView):
 
 
 
-	#Function created by Kuldeep 
+	#Function created by Kuldeep
 def homepage(request):
 	#takes you to the home page
 	return render(request=request, template_name='dash_app/home.html')
@@ -142,7 +143,7 @@ class LoginRequest(View):
 		else:
 			messages.error(request,'Invalid username or password.')
 
-# Created by Kuldeep 
+# Created by Kuldeep
 def logout_request(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.")
