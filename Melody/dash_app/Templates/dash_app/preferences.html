@@ -5,36 +5,49 @@
 <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
 <form method="post" action="">
   {% csrf_token %}
-<!-- Class Authorship: Joaquin Johnson -->
+  <!-- Class Authorship: Joaquin Johnson -->
   <div class="modal-header">
-     <h5 class="modal-title">Select Your Preferences:</h5>
-     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-       <span aria-hidden="true">&times;</span>
-     </button>
-   </div>
+    <h5 class="modal-title">Select Your Preferences:</h5>
+    <button
+      type="button"
+      class="close"
+      data-bs-dismiss="modal"
+      aria-label="Close"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 
-   <div class="modal-body">
-     {% for field in form %}
-       <div class="form-group{% if field.errors %} invalid{% endif %}">
-         <ul>
-             <label for="{{ field.id_for_label }}"><b>{{ field.label }}</b></label><br>
-             <label for="{{ field.id_for_label }}" style= "margin-right: 30px">{{ field }}</label>
-             <label for="{{ field.id_for_label }}">{{ field }}</label>
-             <label for="{{ field.id_for_label }}" style= "margin-right: 30px">{{ field }}</label>
-             <label for="{{ field.id_for_label }}">{{ field }}</label>
-             <label for="{{ field.id_for_label }}" style= "margin-right: 30px">{{ field }}</label>
-             <label for="{{ field.id_for_label }}">{{ field }}</label>
-         </ul>
-         {% for error in field.errors %}
-           <p class="help-block">{{ error }}</p>
-         {% endfor %}
-       </div>
-     {% endfor %}
-   </div>
+  <div class="modal-body">
+    {% for field in form %}
+    <div class="form-group{% if field.errors %} invalid{% endif %}">
+      <ul>
+        <label for="{{ field.id_for_label }}"><b>{{ field.label }}</b></label
+        ><br />
+        <label for="{{ field.id_for_label }}" style="margin-right: 30px"
+          >{{ field }}</label
+        >
+        <label for="{{ field.id_for_label }}">{{ field }}</label>
+        <label for="{{ field.id_for_label }}" style="margin-right: 30px"
+          >{{ field }}</label
+        >
+        <label for="{{ field.id_for_label }}">{{ field }}</label>
+        <label for="{{ field.id_for_label }}" style="margin-right: 30px"
+          >{{ field }}</label
+        >
+        <label for="{{ field.id_for_label }}">{{ field }}</label>
+      </ul>
+      {% for error in field.errors %}
+      <p class="help-block">{{ error }}</p>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
 
-   <div class="modal-footer">
-     <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
-     <button type="submit" class="btn btn-primary">Save</button>
-   </div>
-
- </form>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-bs-dismiss="modal">
+      Close
+    </button>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </div>
+</form>

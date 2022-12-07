@@ -1,18 +1,14 @@
 <!-- templates/search_results.html -->
 
-{% extends "dash_app/search_results_genre.html" %}
-{% load static %}
-{% block title%}
-Search{% endblock%} {% block content %}
-
+{% extends "dash_app/search_results_genre.html" %} {% load static %} {% block
+title%} Search{% endblock%} {% block content %}
 
 <h1>Artist Results</h1>
 
 <ul>
   {% for artist in object_list %}
-
-      <u><b>{{ artist.name }}</b></u><br><br>
-
+  <u><b>{{ artist.name }}</b></u
+  ><br /><br />
   {% endfor %}
 </ul>
 

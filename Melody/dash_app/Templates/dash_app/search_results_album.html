@@ -1,17 +1,14 @@
 <!-- templates/search_results.html -->
 
-{% extends "dash_app/dashboard.html" %}
-{% load static %}
-{% block title%}
+{% extends "dash_app/dashboard.html" %} {% load static %} {% block title%}
 Search{% endblock%} {% block content %}
 
 <h1>Album Results</h1>
 
 <ul>
   {% for album in object_list %}
-
-  <u><b>{{ album.album_name }}</b></u><br><br>
-
+  <u><b>{{ album.album_name }}</b></u
+  ><br /><br />
   {% endfor %}
 </ul>
 
