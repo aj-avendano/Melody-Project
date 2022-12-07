@@ -147,6 +147,37 @@
           </script>
         </div>
       </div>
+
+      <!--Jaimit created the forLoop fuction-->
+      <!--Kuldeep did the BootStrap code-->
+      {% for playlist in object_list %}
+
+      <div class="feature col p-3 border bg-light">
+        <div class="row p-2 d-flex justify-content-center">
+          <div
+            class="feature-icon d-inline-flex align-items-center justify-content-center bg-gradient mb-3"
+            id="item1"
+          >
+            <svg class="bi" width="1em" height="1em">
+              <use xlink:href="#collection" />
+            </svg>
+          </div>
+        </div>
+        <div class="row p-2 d-flex justify-content-center">
+          <h3 class="fs-2">{{playlist.playlist_title}}</h3>
+        </div>
+        <div class="row p-2 d-flex justify-content-center">
+          <button
+            id="create-playlist"
+            name="button"
+            type="button"
+            class="btn btn-outline-primary"
+          >
+            view
+          </button>
+        </div>
+      </div>
+      {%endfor%}
     </div>
   </div>
 </main>
