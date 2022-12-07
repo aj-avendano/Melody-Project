@@ -30,7 +30,7 @@ class PlaylistForm(BSModalModelForm):
 class PlaylistItemsForm(BSModalModelForm):
 	class Meta:
 		model = PlaylistItems
-		fields = ['artist','album','song']
+		fields = ['playlist','artist','album','song']
 class UserPreferenceForm(BSModalModelForm): # Class Authorship: Joaquin Johnson
 	class Meta:
 		model = UserPreferenceRecord

@@ -22,7 +22,10 @@ from django.utils.decorators import method_decorator
 class dashboardHome(ListView):
 	model = Playlist
 	template_name= 'dash_app/dashboardHome.html'
-	
+
+class PlaylistItemView(ListView):
+	model = PlaylistItems
+	template_name= 'dash_app/add_playlist_item.html'
 
 class SearchGenre(ListView):
     model=Genre
@@ -65,12 +68,12 @@ class PlayListCreateView(LoginRequiredMixin,BSModalCreateView):
     template_name = 'dash_app/playlistform.html'
     form_class = PlaylistForm
     success_message = 'Success: playlist was created.'
-    success_url = reverse_lazy('dash_app:dashboardHome')
+    success_url = reverse_lazy('dash_app:add_item')
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-# Created by Kuldeep 		
+# Created by Kuldeep
 class DisplayPlaylistView(LoginRequiredMixin,BSModalCreateView):
     template_name = 'dash_app/displayPlaylist.html'
     form_class = PlaylistForm
@@ -79,30 +82,32 @@ class DisplayPlaylistView(LoginRequiredMixin,BSModalCreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-	
+
 
 class PlaylistItemsCreateView(BSModalCreateView):
-    template_name = 'dash_app/playlistform.html'
+    template_name = 'dash_app/playlistItems.html'
     form_class = PlaylistItemsForm
     success_message = 'Success: item was added.'
-    success_url = reverse_lazy('dash_app:dashboard')
+    success_url = reverse_lazy('dash_app:add_item')
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
 #Class Authorship: Joaquin Johnson
 class UserPreferenceView(LoginRequiredMixin,BSModalCreateView):
     template_name = 'dash_app/preferences.html'
     form_class = UserPreferenceForm
     success_message = 'Success: preference was created.'
     success_url = reverse_lazy('dash_app:dashboard')
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
 
 
-	
+
+
 
 	#@login_required
 #def dashboardHome(request):
 
-#	return render(request=request, template_name='dash_app/dashboardHome.html')	
+#	return render(request=request, template_name='dash_app/dashboardHome.html')
 
 
 
@@ -112,7 +117,7 @@ class UserPreferenceView(LoginRequiredMixin,BSModalCreateView):
 
 
 
-#Function created by Kuldeep 
+#Function created by Kuldeep
 def homepage(request):
 	#takes you to the home page
 	return render(request=request, template_name='dash_app/home.html')
@@ -156,7 +161,7 @@ class LoginRequest(View):
 		else:
 			messages.error(request,'Invalid username or password.')
 
-# Created by Kuldeep 
+# Created by Kuldeep
 def logout_request(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.")
