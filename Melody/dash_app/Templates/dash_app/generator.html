@@ -1,15 +1,16 @@
-
+<!-- Jaimit -->
 {% extends "dash_app/dashboard.html" %}
 {% load static %}
 {% block title%}
-Prefences{% endblock%} {% block content %}
-<h1 style="color: #165483; font-size: 60px;">Welcome to the Playlist Generator<h1>
-<!-- Do not do that extends stuff cause then you'll need to create new file again -->
-Generator
-<form method="post">
+Generator{% endblock%} {% block content %}
+<h1 style="color: black; font-size: 50px; border: 0px;">Playlist Generator<h1>
+
+<h1 style="border: 0px; color: blue;">
+<form method="post", style="color: black; font-size: 25px;">
   {% csrf_token %}
   {{form.as_p}}
-  <button type="submit", name="save"> Create </button>
+  <button type="submit", name="save""> Create </button>
   <p></p>
 </form>
+</h1>
 {% endblock %}
