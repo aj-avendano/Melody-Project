@@ -1,0 +1,76 @@
+<!--Created by Kuldeep-->
+{% load static %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+
+<form method="post" action="">
+  {% csrf_token %}
+      <div class="modal-header">
+        <h5 class="modal-title">Playlist Results</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <table>
+          <thead></thead>
+          <tbody class="table">
+            <tr>
+              <td style="color:blue;">Song</td>
+              <td style="color:blue;">Artist</td>
+              <td style="color:blue;">Album</td>
+            </tr>
+            <tr>
+              <td>Anti-Hero</td>
+              <td>Taylor Swift</td>
+              <td>Midnights</td>
+            </tr>
+            <tr>
+                <td>Holly Jolly Christmas</td>
+                <td>Michael Buble</td>
+                <td>Christmas</td>
+              </tr>
+              <tr>
+                <td>All I Want for Christmas is You</td>
+                <td>Mariah Carey</td>
+                <td>Under the Mistletoe</td>
+              </tr>
+              <tr>
+                <td>Unholy</td>
+                <td>Sam Smith</td>
+                <td>Gloria</td>
+              </tr>
+              <tr>
+                <td>Jingle Bell Rock</td>
+                <td>Bobby Helms</td>
+                <td>Jingle Bell Rock</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          id="btnClosePopup"
+          class="btn btn-default"
+          data-dismiss="modal"
+        >
+          Close
+        </button>
+
+    
+
+        <!--<button type="submit" class="btn btn-primary">Create</button>-->
+      </div>
+    </div>
+
+</form>
