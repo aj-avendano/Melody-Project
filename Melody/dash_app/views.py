@@ -16,6 +16,10 @@ from django.db.models import Q # new
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
+class PlaylistView(ListView):
+    model=Playlist 
+    template_name='dash_app/playlistview.html'
+
 class SearchGenre(ListView):
     model=Genre
     template_name='dash_app/search_results_genre.html'

@@ -1,0 +1,34 @@
+<!-- Jaimit -->
+{% extends "dash_app/dashboard.html" %}
+{% load static %}
+{% block title%}
+{% endblock%} {% block content %}
+
+<head>
+<style>
+
+#box {
+  height: 200px;
+  width: 200px;
+  background-color: #1c77fd;
+  text-align: center;
+  margin: 10px;
+  color: white;
+  float: left;
+}
+</style>
+</head>
+
+<h1>Playlist View</h1>
+
+<ul>
+  {% for playlist in object_list %}
+
+    <div id="box">
+      {{ playlist.playlist_title }}
+    </div>
+
+  {% endfor %}
+</ul>
+
+{% endblock %}
