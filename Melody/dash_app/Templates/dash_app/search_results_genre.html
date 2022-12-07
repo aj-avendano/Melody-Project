@@ -1,4 +1,5 @@
 <!-- templates/search_results.html -->
+<!-- Authorship: Joaquin Johnson -->
 
 {% extends "dash_app/dashboard.html" %}
 {% load static %}
@@ -9,9 +10,9 @@ Search{% endblock%} {% block content %}
 
 <ul>
   {% for genre in object_list %}
-    <li>
-      {{ genre.genre_name }}
-    </li>
+
+      <u><b>{{ genre.genre_name }}</b></u><br><br>
+
   {% endfor %}
 </ul>
 
