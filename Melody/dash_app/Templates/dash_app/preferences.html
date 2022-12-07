@@ -17,7 +17,7 @@
      {% for field in form %}
        <div class="form-group{% if field.errors %} invalid{% endif %}">
          <ul>
-             <label for="{{ field.id_for_label }}">{{ field.label }}</label><br>
+             <label for="{{ field.id_for_label }}"><b>{{ field.label }}</b></label><br>
              <label for="{{ field.id_for_label }}" style= "margin-right: 30px">{{ field }}</label>
              <label for="{{ field.id_for_label }}">{{ field }}</label>
              <label for="{{ field.id_for_label }}" style= "margin-right: 30px">{{ field }}</label>
