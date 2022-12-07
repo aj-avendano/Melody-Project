@@ -17,6 +17,7 @@ urlpatterns = [
     path('preferences', views.preferences, name="preferences"),
     path('generator', views.generator, name="generator"),
     path('create_playlist', views.PlayListCreateView.as_view(), name='create_playlist'),
+    path('display_playlist', views.DisplayPlaylistView.as_view(), name='display_playlist'),
     path('UserPreferences', views.UserPreferenceView.as_view(), name='UserPreferences'),
     path('search_results_genre', views.SearchGenre.as_view(), name="search_results_genre"),
     path('search_results_artist', views.SearchArtist.as_view(), name="search_results_artist"),
