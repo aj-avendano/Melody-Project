@@ -168,7 +168,7 @@
         </div>
         <div class="row p-2 d-flex justify-content-center">
           <button
-            id="create-playlist"
+            id="display-playlist"
             name="button"
             type="button"
             class="btn btn-outline-primary"
@@ -178,6 +178,13 @@
         </div>
       </div>
       {%endfor%}
+      <script type="text/javascript">
+        $(document).ready(function () {
+          $("#display-playlist").modalForm({
+            formURL: "{% url 'dash_app:display_playlist' %}",
+          });
+        });
+      </script>
     </div>
   </div>
 </main>
