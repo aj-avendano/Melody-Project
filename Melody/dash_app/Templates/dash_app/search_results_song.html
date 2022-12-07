@@ -5,12 +5,12 @@
 {% block title%}
 Search{% endblock%} {% block content %}
 
-<h1>Search </h1>
+<h1>Song Results</h1>
 
 <ul>
   {% for song in object_list %}
     <li>
-      {{ song.Song_name }}
+      <b>{{ song.Song_name }}</b>
     </li>
   {% endfor %}
 </ul>
