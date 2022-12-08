@@ -1,3 +1,4 @@
+<!--Dashboard HTML Created by Kuldeep-->
 <!-- Loading static files -->
 {% load static %}
 <!DOCTYPE html>
@@ -32,6 +33,8 @@
 
       <title>{% block title%} Dashboard{% endblock%}</title>
     </head>
+
+    <!--Below are the symbols icons used in Dashboard Page-->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
       <symbol id="home" viewBox="0 0 16 16">
         <path
@@ -71,6 +74,8 @@
       </symbol>
     </svg>
     <body>
+      <!--Class to display Side Navigation Bar-->
+      <!--Created by Kuldeep-->
       <div class="container-fluid">
         <div class="d-flex flex-row" id="mainRow">
           <div class="d-flex col-4 col-md-3 align-items-stretch" id="col1">
@@ -83,13 +88,16 @@
                   href="#home"
                   class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
                 >
+                  <!--Div class to display the logo on the Navigation Bar-->
                   <div class="logo">
                     <img src="{% static 'media/Melody_Icon.png' %}" />
                   </div>
+                  <!--Title that is displayed on the Left corner of the Navigation Bar-->
                   <span class="fs-4">&nbsp;&nbsp;Melody</span>
                 </a>
                 <hr />
-
+                <!--Class to display option in the dropdown for serach fuction-->
+                <!--Search drop down created by Jason-->
                 <ul class="nav nav-pills flex-column mb-auto">
                   <li>
                     <div class="search-bar">
@@ -163,22 +171,13 @@
                           disabled
                         />
                       </form>
-                      {% comment %}
-                      <button
-                        type="button"
-                        class="btn btn-outline-primary"
-                        id="SearchButton"
-                        disabled
-                      >
-                        Search
-                      </button>
-                      {% endcomment %}
                     </div>
                   </li>
                   <li>
                     <hr class="border border-primary border-4 opacity-75" />
                   </li>
-
+                  <!--Home button that is displayed in the Navigation Bar-->
+                  <!--Created by Kuldeep-->
                   <li class="nav-item">
                     <a
                       href="/dashboardHome"
@@ -191,6 +190,8 @@
                       Home
                     </a>
                   </li>
+                  <!--Generate playlist href link that is dispayed on the Navigation Bar-->
+                  <!--Created by Kuldeep-->
                   <li>
                     <a href="/generator" class="nav-link link-dark">
                       <svg class="bi pe-none me-2" width="16" height="16">
@@ -199,22 +200,8 @@
                       Generate Playlist
                     </a>
                   </li>
-                  {% comment %}
-                  <li>
-                    <!-- Authorship of Preferences: Joaquin Johnson -->
-                    <a
-                      href="/preferences"
-                      class="nav-link link-dark"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      <svg class="bi pe-none me-2" width="16" height="16">
-                        <use xlink:href="#heart" />
-                      </svg>
-                      Preferences
-                    </a>
-                  </li>
-                  {% endcomment %}
+                  <!--Preferences href link that is displayed on the Navigation Bar-->
+                  <!--Created by Kuldeep-->
                   <li>
                     <a
                       id="Preferences"
@@ -228,7 +215,8 @@
                       </svg>
                       Preferences
                     </a>
-                    <!-- Authorship of Preferences: Joaquin Johnson -->
+                    <!-- Authorship of Preferences Pop-Up function: Joaquin Johnson -->
+                    <!-- Class to display Pop-Up when Preferences href link is clicked -->
                     <div
                       class="modal fade"
                       tabindex="-1"
@@ -239,6 +227,7 @@
                         <div class="modal-content"></div>
                       </div>
                     </div>
+                    <!--Function that displays the Pop-Up form-->
                     <script type="text/javascript">
                       $(document).ready(function () {
                         $("#Preferences").modalForm({
@@ -249,6 +238,8 @@
                   </li>
                 </ul>
                 <hr />
+                <!--Class to display dropdown menu when clicking on userId of the user-->
+                <!--Created by Kuldeep-->
                 <div class="dropdown">
                   <hr class="border border-4 opacity-75" />
                   <a
@@ -260,23 +251,27 @@
                     <svg class="bi pe-none me-2" width="40" height="40">
                       <use xlink:href="#people-circle" />
                     </svg>
+                    <!--Displays the userID of the user that is logged in-->
                     <strong>&nbsp;&nbsp;{{user |capfirst}}</strong>
                   </a>
                   <ul class="dropdown-menu text-small shadow">
-                    <li><a class="dropdown-item" href="#">Preferences</a></li>
+                    <li><a class="dropdown-item" id="Preferences" href="#">Preferences</a></li>
                     <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    <li><a class="dropdown-item" href="/logout">Sign out</a></li>
                   </ul>
                 </div>
               </div>
             </main>
           </div>
           <div class="col-8 col-md-9" id="col2">
+            <!--Block used to extend this Navigation bar to other pages-->
             <div>{% block content %} {% endblock %}</div>
           </div>
         </div>
       </div>
 
+      <!--Fuction to search bar-->
+      <!--Created by Jason-->
       <script>
         let select = document.getElementById("select");
         let list = document.getElementById("list");
@@ -290,7 +285,6 @@
           };
           for (option of options) {
             option.onclick = function () {
-              /*SearchButton.disabled = false;*/
               selectText.innerHTML = this.innerHTML;
               if (selectText.innerHTML == "Genre") {
                 albumInputField.setAttribute("style", "display:none");
