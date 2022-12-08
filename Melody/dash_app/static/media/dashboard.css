@@ -1,3 +1,6 @@
+/* Created by Kuldeep */
+/* CSS for DashboardHome page */
+
 .container-fluid {
   padding: 0px;
 }
@@ -56,22 +59,9 @@ H1 {
   overflow: hidden;
   transition: max-height 0.5s;
 }
-/*  
-#select ul li{
-  padding 10px 20px;
-  cursor: pointer;
-}
 
-.search-bar input{
-  padding 10px 25px;
-  width:50%;
-  border = none;
-  outline = none;
-  font-size 18;
-}
-*/
 #select ul.open {
   max-height: 300px;
 }
 
-/*JASON SEARCHBAR CHANGES */
+

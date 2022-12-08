@@ -1,3 +1,6 @@
+/* Created by Kuldeep */
+/* CSS for icons that are displayed in Dashboard Home page */
+
 .feature-icon {
   width: 4rem;
   height: 4rem;
@@ -6,6 +9,7 @@
   background-color: #1c77fd;
   font-size: x-large;
 }
+
 symbol {
   color: transparent;
 }
@@ -16,6 +20,7 @@ symbol {
   fill: currentcolor;
   transition: transform 0.25s ease-in-out;
 }
+
 .icon-link:hover > .bi {
   transform: translate(0.25rem);
 }
@@ -29,9 +34,11 @@ symbol {
 .text-shadow-1 {
   text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
 }
+
 .text-shadow-2 {
   text-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
 }
+
 .text-shadow-3 {
   text-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
 }
