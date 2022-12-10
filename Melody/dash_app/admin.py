@@ -2,7 +2,8 @@ from django.contrib import admin
 
 # Register your models here.
 from dash_app.models import Playlist,PlaylistItems,UserPreferenceRecord,Genre,Artist,Album,Song
-
+#Anthony Avendano
+#registers db objects on admin site
 admin.site.register(Playlist)
 admin.site.register(PlaylistItems)
 admin.site.register(UserPreferenceRecord)
